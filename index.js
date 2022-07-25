@@ -31,7 +31,7 @@ function Total() {
 console.log(Total());
 
 //Encapsulation method
-function laptop(user) {
+function laptop(user, program) {
   let size = 20;
   let color = 'blue';
   let windowsFolder = 'windows';
@@ -45,7 +45,6 @@ function laptop(user) {
 
 
   return {
-    size: 20,
     brand: 'hp',
     processor: 'Intel',
     storage: '200GB',
@@ -79,7 +78,14 @@ function laptop(user) {
         } else {
           console.log("permission declined");
         }
-      }
+      },
+    open : function(){
+    console.log("Launched " + program);
+    setTimeout(function () {
+      console.log("Launch " + program);
+    }, 5000)
+      console.log('Test');
+    }
   }
 }
 
@@ -95,9 +101,59 @@ console.log(user1.getWindowsFolderName());
 user1.setWindowsFolderName('program');
 user2.setWindowsFolderName('program');
 
+//user1.open();
+
+
+//Inheritance
+function LaunchProgram(user, program){
+  return laptop.call(this, user, program);
+}
+let launch = new LaunchProgram('Employee', 'Microsoft Excel');
+
+launch.open();
+console.log(launch.brand);
+
+//Abstraction
+function Car(name){
+  let timeTaken = 10000;
+  return{
+    timeTakenToStart : "0 sec",
+    start : function (){
+      console.log('STARTING ' + name);
+      setTimeout(function(){
+        console.log('STARTED ' + name);
+        this.timeTakenToStart = 10000/1000 + ' secs';
+        console.log(this.timeTakenToStart);
+      }, timeTaken)
+    },
+    getStartingTime : function (){
+      return this.timeTakenToStart;
+    }
+  }
+}
+
+//Polymorphism
+function Bus(name){
+  let car = Car.call(this, name);
+  let timeTaken = 20000;
+  car.start = function(){
+    console.log('STARTING ' + name);
+      setTimeout(function(){
+        console.log('STARTED ' + name);
+        this.timeTakenToStart = timeTaken/1000 + ' secs';
+        console.log(this.timeTakenToStart);
+      }, timeTaken)
+  }
+  return car;
+}
+
+let myCar = new Car('Camry');
+let myBus = new Bus('Mazda');
+console.log(myCar.timeTakenToStart);
+myCar.start();
+myBus.start();
 
 //OOP method
-
 //let laptop = {
 //    size: 20,
 //    color: 'Grey',
@@ -124,5 +180,3 @@ user2.setWindowsFolderName('program');
 //console.log(laptop.browse());
 //console.log(laptop.specification());
 //console.log(laptop.size);
-
-
