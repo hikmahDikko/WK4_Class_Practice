@@ -5,3 +5,5 @@
 --OOP (Object Oriented Programming)
 --Encapsulation
 --Inheritance
+--Abstraction
+--Polymorphism
