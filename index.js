@@ -30,9 +30,10 @@ function Total() {
 
 console.log(Total());
 
+//Encapsulation method
 function laptop(user) {
   let size = 20;
-  let colour = 'blue';
+  let color = 'blue';
   let windowsFolder = 'windows';
 
   function checkRole() {
@@ -45,8 +46,6 @@ function laptop(user) {
 
   return {
     size: 20,
-    color: 'blue',
-    color: 'Grey',
     brand: 'hp',
     processor: 'Intel',
     storage: '200GB',
@@ -67,12 +66,12 @@ function laptop(user) {
       return size * 2;
     },
     getColor: function() {
-      return colour;
+      return color;
     },
     getWindowsFolderName: function() {
       return windowsFolder;
     },
-    setWindowsFolderName:       
+    setWindowsFolderName:
       function(newwindowsFolderName) {
         if (checkRole()) {
           windowsFolder = newwindowsFolderName;
@@ -80,15 +79,27 @@ function laptop(user) {
         } else {
           console.log("permission declined");
         }
-    }
+      }
   }
 }
+
+let laptopObject = new laptop();
+laptopObject.size = 10;
+console.log(laptopObject.getActual());
+console.log(laptopObject.getColor());
+
+let user1 = new laptop('Employee');
+let user2 = new laptop('Admin');
+
+console.log(user1.getWindowsFolderName());
+user1.setWindowsFolderName('program');
+user2.setWindowsFolderName('program');
+
 
 //OOP method
 
 //let laptop = {
 //    size: 20,
-//    color: 'blue',
 //    color: 'Grey',
 //    brand: 'hp',
 //   processor: 'Intel',
@@ -114,15 +125,4 @@ function laptop(user) {
 //console.log(laptop.specification());
 //console.log(laptop.size);
 
-//Encapsulation method
-let laptopObject = new laptop();
-laptopObject.size = 10;
-console.log(laptopObject.getActual());
-console.log(laptopObject.getColor());
 
-let user1 = new laptop('Employee');
-let user2 = new laptop('Admin');
-
-console.log(user1.getWindowsFolderName());
-user1.setWindowsFolderName('program');
-user2.setWindowsFolderName('program');
