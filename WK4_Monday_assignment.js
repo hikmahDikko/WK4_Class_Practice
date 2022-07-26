@@ -1,3 +1,5 @@
+//Inheritance 
+
 let Person = {
   name : "Dikko Hikmat",
   idNum : "2022/1234",
@@ -25,7 +27,7 @@ function School(){
 }
 
 let school = new School();
-//let n = school.name + " with " + school.idNum + " " + school.write();
+
 console.log(school.performAction());
 console.log(" ");
 school.name = "Omotayo Mutiat";
