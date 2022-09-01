@@ -29,7 +29,9 @@ function School(){
 let school = new School();
 
 console.log(school.performAction());
-console.log(" ");
 school.name = "Omotayo Mutiat";
 school.idNum = "2022/1444";
-console.log(school.performAction());
+console.log("\n" + school.performAction());
+school.name = "Mariam Omotayo Mutiat";
+school.idNum = "2021/1458";
+console.log("\n" + school.performAction());
